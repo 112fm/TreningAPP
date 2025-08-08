@@ -134,3 +134,13 @@ function markHabit(index) {
 
 renderHabits();
 showTab('habits');
+function openHabitModal() {
+  document.getElementById("habitModal").style.display = "flex";
+}
+
+function closeHabitModal() {
+  document.getElementById("habitModal").style.display = "none";
+}
+function goToStep2() {
+  alert("Переход к шагу 2 (пока не реализовано)");
+}
