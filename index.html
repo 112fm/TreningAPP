@@ -18,7 +18,7 @@
   <div id="habits" class="tab">
     <h2>Мои привычки</h2>
     <ul id="habitList"></ul>
-    <button onclick="addHabit()">Добавить привычку</button>
+    <button onclick="openHabitModal()">Добавить привычку</button>
   </div>
 
   <div id="training" class="tab" style="display:none;">
@@ -35,6 +35,24 @@
     <h2>Отчёт</h2>
     <p>Раздел в разработке</p>
   </div>
+<!-- Шаг 1: Окно создания привычки -->
+<div id="habitModal" class="modal" style="display:none;">
+  <div class="modal-content">
+    <h3>Создание привычки — Шаг 1 из 3</h3>
+
+    <input id="habitName" type="text" placeholder="Название привычки">
+
+    <label for="habitColor">Цвет привычки:</label>
+    <input id="habitColor" type="color" value="#8fffd0">
+
+    <input id="habitTimesPerDay" type="number" min="1" value="1" placeholder="Сколько раз в день">
+
+    <input id="habitDuration" type="number" min="1" value="21" placeholder="Сколько дней">
+
+    <button onclick="goToStep2()">Далее</button>
+    <button onclick="closeHabitModal()">Отмена</button>
+  </div>
+</div>
   <script src="app.js"></script>
   <div id="calendarModal" class="modal" style="display:none;">
   <div class="modal-content">
