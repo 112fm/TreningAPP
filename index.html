@@ -8,34 +8,32 @@
   <link rel="manifest" href="manifest.json">
 </head>
 <body>
-  <h1>🏋️ Моя тренировка</h1>
+  <nav>
+    <button onclick="showTab('habits')">Habits</button>
+    <button onclick="showTab('training')">Training</button>
+    <button onclick="showTab('timer')">Timer</button>
+    <button onclick="showTab('journal')">Journal</button>
+  </nav>
 
-  <!-- Таймер -->
-  <section>
-    <h2>⏱ Таймер</h2>
-    <label>Минуты: <input type="number" id="minutes" min="0" value="0"></label>
-    <label>Секунды: <input type="number" id="seconds" min="0" value="30"></label>
-    <button id="startTimer">Старт</button>
-    <button id="resetTimer">Сброс</button>
-    <p id="timerDisplay">00:30</p>
-  </section>
+  <div id="habits" class="tab">
+    <h2>Мои привычки</h2>
+    <ul id="habitList"></ul>
+    <button onclick="addHabit()">Добавить привычку</button>
+  </div>
 
-  <!-- Список тренировок -->
-  <section>
-    <h2>📋 Тренировки</h2>
-    <ul id="workoutList"></ul>
-    <input type="text" id="workoutInput" placeholder="Добавить упражнение">
-    <button id="addWorkout">Добавить</button>
-  </section>
+  <div id="training" class="tab" style="display:none;">
+    <h2>Тренировки</h2>
+    <p>Раздел в разработке</p>
+  </div>
 
-  <!-- Чек-лист целей -->
-  <section>
-    <h2>✅ Цели</h2>
-    <ul id="goalList"></ul>
-    <input type="text" id="goalInput" placeholder="Новая цель">
-    <button id="addGoal">Добавить</button>
-  </section>
+  <div id="timer" class="tab" style="display:none;">
+    <h2>Таймер</h2>
+    <p>Раздел в разработке</p>
+  </div>
 
-  <script src="app.js"></script>
+  <div id="journal" class="tab" style="display:none;">
+    <h2>Отчёт</h2>
+    <p>Раздел в разработке</p>
+  </div>
 </body>
 </html>
