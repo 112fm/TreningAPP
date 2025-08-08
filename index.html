@@ -35,31 +35,85 @@
     <h2>Отчёт</h2>
     <p>Раздел в разработке</p>
   </div>
-<!-- Шаг 1: Окно создания привычки -->
-<div id="habitModal" class="modal" style="display:none;">
+
+  <!-- Шаг 1: Окно создания привычки -->
+  <div id="habitModal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <h3>Создание привычки — Шаг 1 из 3</h3>
+
+      <input id="habitName" type="text" placeholder="Название привычки">
+
+      <label for="habitColor">Цвет привычки:</label>
+      <input id="habitColor" type="color" value="#8fffd0">
+
+      <input id="habitTimesPerDay" type="number" min="1" value="1" placeholder="Сколько раз в день">
+
+      <input id="habitDuration" type="number" min="1" value="21" placeholder="Сколько дней">
+
+      <button onclick="goToStep2()">Далее</button>
+      <button onclick="closeHabitModal()">Отмена</button>
+    </div>
+  </div>
+
+  <!-- Шаг 2: Доп. информация о привычке -->
+  <div id="habitStep2" class="modal" style="display:none;">
+    <div class="modal-content">
+      <h3>Создание привычки — Шаг 2 из 3</h3>
+
+      <input id="habitAmount" type="number" min="1" placeholder="Введите количество (например, 10)">
+
+      <select id="habitUnit">
+        <option value="">Выберите единицу (необязательно)</option>
+        <option value="минут">минут</option>
+        <option value="часов">часов</option>
+        <option value="раз">раз</option>
+        <option value="повторов">повторов</option>
+      </select>
+
+      <div style="margin-top: 10px;">
+        <button onclick="goToStep3()">Далее</button>
+        <button onclick="skipToStep3()">Пропустить</button>
+        <button onclick="closeAllModals()">Отмена</button>
+      </div>
+    </div>
+  </div>
+  
+<!-- Шаг 3: Время напоминания и дни недели -->
+<div id="habitStep3" class="modal" style="display:none;">
   <div class="modal-content">
-    <h3>Создание привычки — Шаг 1 из 3</h3>
+    <h3>Создание привычки — Шаг 3 из 3</h3>
 
-    <input id="habitName" type="text" placeholder="Название привычки">
+    <label for="reminderTime">Время напоминания:</label>
+    <input id="reminderTime" type="time">
 
-    <label for="habitColor">Цвет привычки:</label>
-    <input id="habitColor" type="color" value="#8fffd0">
+    <p>Выберите дни недели:</p>
+    <div id="weekDaysCheckboxes" style="display: flex; flex-wrap: wrap; gap: 10px;">
+      <label><input type="checkbox" value="Пн"> Пн</label>
+      <label><input type="checkbox" value="Вт"> Вт</label>
+      <label><input type="checkbox" value="Ср"> Ср</label>
+      <label><input type="checkbox" value="Чт"> Чт</label>
+      <label><input type="checkbox" value="Пт"> Пт</label>
+      <label><input type="checkbox" value="Сб"> Сб</label>
+      <label><input type="checkbox" value="Вс"> Вс</label>
+    </div>
 
-    <input id="habitTimesPerDay" type="number" min="1" value="1" placeholder="Сколько раз в день">
-
-    <input id="habitDuration" type="number" min="1" value="21" placeholder="Сколько дней">
-
-    <button onclick="goToStep2()">Далее</button>
-    <button onclick="closeHabitModal()">Отмена</button>
+    <div style="margin-top: 10px;">
+      <button onclick="selectAllDays()">Каждый день</button>
+      <button onclick="saveHabit()">Сохранить</button>
+      <button onclick="closeAllModals()">Отмена</button>
+    </div>
   </div>
 </div>
-  <script src="app.js"></script>
+
+  <!-- Модальное окно календаря -->
   <div id="calendarModal" class="modal" style="display:none;">
-  <div class="modal-content">
-    <span class="close" onclick="closeCalendar()">&times;</span>
-    <h3 id="calendarTitle">Прогресс за месяц</h3>
-    <div id="calendarGrid"></div>
+    <div class="modal-content">
+      <span class="close" onclick="closeCalendar()">&times;</span>
+      <h3 id="calendarTitle">Прогресс за месяц</h3>
+      <div id="calendarGrid"></div>
+    </div>
   </div>
-</div>
+
+  <script src="app.js"></script>
 </body>
 </html>
