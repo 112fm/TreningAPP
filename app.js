@@ -77,6 +77,12 @@ function renderHabits() {
     const card = document.createElement("div");
     card.className = "habit-card";
 
+    card.onclick = (e) => {
+      if (!e.target.classList.contains("habit-day")) {
+        openCalendar(index);
+      }
+    };
+
     const title = document.createElement("h3");
     title.textContent = habit.name;
 
@@ -86,9 +92,6 @@ function renderHabits() {
     const week = document.createElement("div");
     week.className = "habit-week";
 
-    // Клик по всей неделе открывает календарь
-    week.onclick = () => openCalendar(index);
-
     days.forEach(date => {
       const day = document.createElement("div");
       day.className = "habit-day";
@@ -96,9 +99,8 @@ function renderHabits() {
         day.classList.add("checked");
       }
 
-      // Отмечаем/снимаем галку
       day.onclick = (e) => {
-        e.stopPropagation(); // блокируем открытие календаря
+        e.stopPropagation();
         if (!habit.progress.includes(date)) {
           habit.progress.push(date);
         } else {
